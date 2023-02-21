@@ -23,5 +23,5 @@ public class Post {
     @Column(columnDefinition = "TEXT")
     private String body;
 
-    private LocalDateTime createdAt;
+    private LocalDateTime createdDate;
 }
