@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.security.Principal;
 import java.util.Optional;
 
 @Controller
@@ -41,8 +42,15 @@ public class PostController {
     }
 
     @GetMapping("/posts/new")
-    public String createNewPost(Model model){
-        Optional<Account> optionalAccount = accountService.findByEmail("user.user@domain.com");
+    @PreAuthorize("isAuthenticated()")
+    public String createNewPost(Model model,  Principal principal){
+
+        String authUsername = "anonymousUser";
+        if(principal != null){
+            authUsername = principal.getName();
+        }
+
+        Optional<Account> optionalAccount = accountService.findOneByEmail(authUsername);
         if(optionalAccount.isPresent()){
             Post post = new Post();
             post.setAccount(optionalAccount.get());
@@ -51,6 +59,22 @@ public class PostController {
         }else{
             return "404";
         }
+    }
+
+    @PostMapping("/posts/new")
+    @PreAuthorize("isAuthenticated()")
+    public String createNewPost(@ModelAttribute Post post, Principal principal){
+
+        String authUsername = "anonymousUser";
+        if(principal != null){
+            authUsername = principal.getName();
+        }
+
+        if(post.getAccount().getEmail().compareToIgnoreCase(authUsername) < 0){
+
+        }
+        postService.save(post);
+        return "redirect:/posts/" + post.getId();
     }
 
     @PostMapping("/posts/new")
@@ -90,7 +114,7 @@ public class PostController {
     }
 
     @GetMapping("/posts/{id}/delete")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String deletePost(@PathVariable Long id){
 
         Optional<Post> optionalPost = postService.getById(id);

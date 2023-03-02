@@ -3,6 +3,7 @@ package com.example.springbootblogapplication.models;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 */
 @Getter
 @Setter
+@NoArgsConstructor
 public class Post {
 
     @Id
