@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-securlity">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,6 +16,11 @@
         <h5 th:text="'Created on ' + ${post.createdDate}">Created At</h5>
         <p th:text="${post.body}">body text</p>
     </div>
+    <ul sec:authorize="isAuthenticated()">
+        <li><a th:href="@{'/posts/' + ${post.id} + '/edit'}"></a></li>
+        <li><a th:href="@{'/posts/' + ${post.id} + '/delete'}"></a></li>
+
+    </ul>
 </div>
 </body>
 </html>
