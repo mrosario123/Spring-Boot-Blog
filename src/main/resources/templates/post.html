@@ -18,8 +18,8 @@
         <p th:text="${post.body}">body text</p>
     </div>
     <ul sec:authorize="isAuthenticated()">
-        <li><a th:href="@{'/posts/' + ${post.id} + '/edit'}"></a></li>
-        <li><a th:href="@{'/posts/' + ${post.id} + '/delete'}"></a></li>
+        <li><a th:href="@{'/posts/' + ${post.id} + '/edit'}">Edit</a></li>
+        <li><a th:href="@{'/posts/' + ${post.id} + '/delete'}">Delete</a></li>
 
     </ul>
 </div>

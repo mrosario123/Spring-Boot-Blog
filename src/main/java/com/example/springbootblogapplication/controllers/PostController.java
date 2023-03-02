@@ -77,11 +77,11 @@ public class PostController {
         return "redirect:/posts/" + post.getId();
     }
 
-    @PostMapping("/posts/new")
-    public String saveNewPost(@ModelAttribute Post post){
-        postService.save(post);
-        return "redirect:/posts/" + post.getId();
-    }
+//    @PostMapping("/posts/new")
+//    public String saveNewPost(@ModelAttribute Post post){
+//        postService.save(post);
+//        return "redirect:/posts/" + post.getId();
+//    }
 
     @GetMapping("/posts/{id}/edit")
     @PreAuthorize("isAuthenticated()")
