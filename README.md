@@ -1,20 +1,28 @@
-<h1>Spring Boot Blog Application</h1>
+
+# Spring Boot Blog Application
+ 
+This project was made with Java Spring Boot
+
+Several Dependicies include:
+
+* Spring Data JPA
+* H2 Database
+* Thymeleaf
+* Spring Security
+
+This project will get updated frequently as I try to implement technologies I learn or want to review.
+
+## Download
+
+- ``` git clone https://github.com/mrosario123/Spring-Boot-Blog.git ```
+- Open in editor
+- Open http://localhost:3000 on browser
 
 
-<p>This project was made with Java Spring Boot</p>
-<p>Dependicies:</p>
-<ul>
-  <li>Spring Data JPA</li>
-  <li>H2 Database</li>
-  <li>Thymeleaf</li>
-  <li>Spring Security</li>
-</ul>
-
-<p>This project will get updated frequently as I try to implement technologies I learn or want to review.</p>
-
-<h2>Download</h2>
-`git clone https://github.com/mrosario123/Spring-Boot-Blog.git`
-<p>Open in editor</p>
-<p>open http://localhost:3000 on browser</p>
+## Accounts
+- To Login with User role: Email: ```user.user@domain.com``` Password: ```password```
+- To Login with Admin role: Email: ```admin.admin@domain.com``` Password: ```password```
+- User accounts can ```Create, Read, Update``` Posts
+- Admin accounts can ```Create, Read, Update, Delete``` Posts
 
 
