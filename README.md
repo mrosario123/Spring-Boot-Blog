@@ -1,5 +1,5 @@
 
-# Spring Boot Blog Application
+# Spring Boot Blog
  
 This project was made with Java Spring Boot
 
