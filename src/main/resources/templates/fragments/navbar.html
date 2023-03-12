@@ -6,9 +6,9 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark" th:fragment="navbar">
+<nav class="navbar navbar-expand-lg" style="background-color: #D79922" th:fragment="navbar">
     <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{'/'}">48</a>
+        <a class="navbar-brand" th:href="@{'/'}" style="color: red;">48</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"  th:href="@{'/'}" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -16,15 +16,15 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             </ul>
             <div class="d-grid d-md-flex justify-content-md-end btn-group" role="group" sec:authorize="!isAuthenticated()">
-                <a th:href="@{/register}" class="btn btn-primary" role="button">Register</a>
-                <a th:href="@{/login}" class="btn btn-primary" role="button">Login</a>
+                <a th:href="@{/register}" class="btn btn-outline-danger" role="button">Register</a>
+                <a th:href="@{/login}" class="btn btn-outline-danger" role="button">Login</a>
             </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-between" sec:authorize="isAuthenticated()">
-                <a th:href="@{/posts/new}" class="btn btn-primary" role="button">New Post</a>
+                <a th:href="@{/posts/new}" class="btn btn-outline-danger" role="button">New Post</a>
                 <form action="#"
                       th:action="@{/logout}"
                       method="POST">
-                    <button class="btn btn-primary" type="submit">Logout</button>
+                    <button class="btn btn-outline-danger" type="submit">Logout</button>
                 </form>
             </div>
         </div>
